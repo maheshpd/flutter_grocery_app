@@ -2,6 +2,7 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_grocery_app/provider/dark_theme_provider.dart';
 import 'package:flutter_grocery_app/services/utils.dart';
+import 'package:flutter_grocery_app/widget/on_sale_widget.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -26,23 +27,28 @@ class _HomeScreenState extends State<HomeScreen> {
     Size size = Utils(context).getscreenSize;
 
     return Scaffold(
-      body: SizedBox(
-        height: size.height * 0.33,
-        child: Swiper(
-          itemCount: _offerImages.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Image.asset(
-              _offerImages[index],
-              fit: BoxFit.fill,
-            );
-          },
-          autoplay: true,
-          pagination: const SwiperPagination(
-              alignment: Alignment.bottomCenter,
-              builder: DotSwiperPaginationBuilder(
-                  color: Colors.white, activeColor: Colors.red)),
-          // control: const SwiperControl(color: Colors.amber),
-        ),
+      body: Column(
+        children: [
+          SizedBox(
+            height: size.height * 0.33,
+            child: Swiper(
+              itemCount: _offerImages.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Image.asset(
+                  _offerImages[index],
+                  fit: BoxFit.fill,
+                );
+              },
+              autoplay: true,
+              pagination: const SwiperPagination(
+                  alignment: Alignment.bottomCenter,
+                  builder: DotSwiperPaginationBuilder(
+                      color: Colors.white, activeColor: Colors.red)),
+              // control: const SwiperControl(color: Colors.amber),
+            ),
+          ),
+          const OnSaleWidget(),
+        ],
       ),
     );
   }
