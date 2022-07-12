@@ -1,3 +1,4 @@
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_grocery_app/services/utils.dart';
 import 'package:flutter_grocery_app/widget/price_widget.dart';
@@ -35,11 +36,10 @@ class _OnSaleWidgetState extends State<OnSaleWidget> {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.network(
-                      'https://i.ibb.co/F0s3FHQ/Apricots.png',
-                      // width: size.width * 0.22,
+                    FancyShimmerImage(
+                      imageUrl: 'https://i.ibb.co/F0s3FHQ/Apricots.png',
                       height: size.width * 0.22,
-                      fit: BoxFit.fill,
+                      width: size.width * 0.22,
                     ),
                     Column(
                       children: [

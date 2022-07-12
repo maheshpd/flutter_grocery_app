@@ -27,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final Utils utils = Utils(context);
     final themeState = utils.getTheme;
     Size size = Utils(context).getscreenSize;
+    final Color color = Utils(context).color;
 
     return Scaffold(
       body: Column(
@@ -96,6 +97,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ],
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                TextWidget(
+                  text: 'Our products',
+                  color: color,
+                  textSize: 22,
+                  isTitle: true,
+                ),
+                const Spacer(),
+                TextButton(
+                    onPressed: () {},
+                    child: TextWidget(
+                      text: 'Browse all',
+                      color: Colors.blue,
+                      textSize: 20,
+                    )),
+              ],
+            ),
           )
         ],
       ),
