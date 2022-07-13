@@ -129,9 +129,10 @@ class _HomeScreenState extends State<HomeScreen> {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               crossAxisCount: 2,
-             // crossAxisSpacing: 10,
+              padding: EdgeInsets.zero,
+              // crossAxisSpacing: 10,
               childAspectRatio: size.width / (size.height * 0.6),
-              children: List.generate(4, (index){
+              children: List.generate(4, (index) {
                 return const FeedsWidget();
               }),
             )
