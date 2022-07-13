@@ -1,6 +1,8 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_grocery_app/inner_screen/on_sale_screen.dart';
 import 'package:flutter_grocery_app/provider/dark_theme_provider.dart';
+import 'package:flutter_grocery_app/services/global_method.dart';
 import 'package:flutter_grocery_app/services/utils.dart';
 import 'package:flutter_grocery_app/widget/feed_items.dart';
 import 'package:flutter_grocery_app/widget/on_sale_widget.dart';
@@ -29,6 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final themeState = utils.getTheme;
     Size size = Utils(context).getscreenSize;
     final Color color = Utils(context).color;
+    GlobalMethod globalMethod = GlobalMethod();
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -56,7 +59,10 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 6,
             ),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  GlobalMethod.navigateTo(
+                      ctx: context, routeName: OnSaleScreen.routeName);
+                },
                 child: TextWidget(
                   text: 'View all',
                   color: Colors.blue,
