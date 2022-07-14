@@ -11,6 +11,8 @@ class OnSaleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool _isEmpty = true;
+
     final Color color = Utils(context).color;
     Size size = Utils(context).getscreenSize;
     return Scaffold(
@@ -26,7 +28,9 @@ class OnSaleScreen extends StatelessWidget {
           ),
         ),
         elevation: 0,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: Theme
+            .of(context)
+            .scaffoldBackgroundColor,
         title: TextWidget(
           text: 'Product on sale',
           color: color,
@@ -34,7 +38,24 @@ class OnSaleScreen extends StatelessWidget {
           isTitle: true,
         ),
       ),
-      body: GridView.count(
+      body: _isEmpty
+          ? Center(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: Image.asset("assets/images/box.png"),
+            ),
+            Text(
+              'No Products on sale yet!,\n stay tuned',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: color, fontSize: 30, fontWeight: FontWeight.w700),
+            ),
+          ],
+        ),
+      )
+          : GridView.count(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         crossAxisCount: 2,
